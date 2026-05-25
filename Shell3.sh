@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Logfile=/opt/$0.log
+Logfile=/var/log/$0.log
 
 R="\e[31m"
 G="\e[32m"
