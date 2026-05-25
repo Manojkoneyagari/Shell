@@ -29,7 +29,7 @@ dpkg -l | grep nginx
 echo "status of nginx package uninstallation $?"
 else
 echo " $1 service is already in stopped state"
-
+fi
 else
 echo " give proper argument in command line"
 fi
