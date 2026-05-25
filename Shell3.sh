@@ -50,8 +50,8 @@ if [ $? -eq 0 ]; then
 echo -e "$(date +%Y/%m/%d-%H:%M)- $package already ${G} installed ${N}"
 exit 0
 else
-echo -e "$(date +%Y/%m/%d-%H:%M) $package is not installed, Hence we are ${Y} installing now ${N}" | tee -a Logfile
-apt install $package -y &>> Logfile
+echo -e "$(date +%Y/%m/%d-%H:%M) $package is not installed, Hence we are ${Y} installing now ${N}" | tee -a $Logfile
+apt install $package -y &>> $Logfile
 Validatepackage $? $package
 fi
 done
