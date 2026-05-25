@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Logfile=./$0.log
+Logfile=logs.log
 
 R="\e[31m"
 G="\e[32m"
