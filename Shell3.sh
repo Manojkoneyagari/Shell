@@ -18,11 +18,11 @@ fi
 
 Validatepackage() {
 if [ $1 -eq 0 ]; then
-echo "$(date +%Y/%m/%d-%H:%M) $2 ${G} package installation is success ${N}"
-echo " ${Y} Validating $2 service status now ${N}"
+echo -e "$(date +%Y/%m/%d-%H:%M) $2 ${G} package installation is success ${N}"
+echo -e " ${Y} Validating $2 service status now ${N}"
 Validateservice $2
 else
-echo "${R} $2 Package installation is failed ${N}"
+echo -e "${R} $2 Package installation is failed ${N}"
 exit 1
 fi
 }
@@ -34,9 +34,9 @@ Validateservice() {
     fi
         systemctl status $Service
       if [ $? -eq 0 ]; then
-      echo "${G} $Service service has started ${N}"
+      echo -e "${G} $Service service has started ${N}"
       else
-      echo "${R} $Service service is not started, so manually starting and enabling the service ${N}"
+      echo -e "${R} $Service service is not started, so manually starting and enabling the service ${N}"
       fi
 }
 
