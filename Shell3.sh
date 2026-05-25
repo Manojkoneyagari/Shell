@@ -9,8 +9,7 @@ fi
 
 
 
-
-Validatepackage()
+Validatepackage() {
 if [ $1 -eq 0 ]; then
 echo "$2 package installation is successfully"
 echo " Validating $2 service status now"
@@ -19,16 +18,17 @@ else
 echo "$2 Package installation is failed"
 exit 1
 fi
+}
 
-Validateservice()
-Systemctl status $1
+Validateservice() {
+systemctl status $1
 if [ $? -eq 0 ]; then
 echo " $1 service has started "
 else
 echo " $1 service is not started, so manually starting and enabling the service "
 sudo systemctl enable --now mysql
 fi
-
+}
 
 
 #Checking MYSQL package insatlled or not
