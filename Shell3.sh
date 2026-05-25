@@ -26,22 +26,24 @@ if [ $? -eq 0 ]; then
 echo " $1 service has started "
 else
 echo " $1 service is not started, so manually starting and enabling the service "
-sudo systemctl enable --now mysql
 fi
 }
 
 
 #Checking MYSQL package insatlled or not
-dpkg -l | grep mysql
 
+for package in $@
+do
+dpkg -l | grep $package
 if [ $? -eq 0 ]; then
-echo " MYSQL already installed"
+echo " $package already installed"
 exit 0
 else
-echo " MYSQL is not installed, Hence we are installing now"
-apt install mysql-server -y
-Validatepackage $? mysql
+echo " $package is not installed, Hence we are installing now"
+apt install $package -y
+Validatepackage $? $package
 fi
+done
 
 
 
